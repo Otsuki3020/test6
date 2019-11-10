@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+/*======== base ========*/
+:root{
+    --h-navi-bg: #57accd;
+    --m-head-bg: #60bfe5;
+    --main-color: #5d627b;
+    --footer-bg: #0f2347;
+    --button-red: #e05c5c;
+    --button-blue: #668ad8;
+
+}
+
+body{
+    letter-spacing:1px;
+    font-family:"Hiragino Kaku Gothic Pro",HiraKakuPro-W3,"ヒラギノ角ゴ Pro W3","メイリオ", Meiryo,"ＭＳ Ｐゴシック",verdana,sans-serif;
+    font-size:13px;
+    line-height: 1.8em;
+    margin: 0;
+    padding: 0;
+    line-break: normal;
+    background: #ddd;
+}
+
+h2{
+    margin-top: 1.5em;
+}
+h3{
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.submit{
+    -webkit-appearance: none;
+    background-image: none;
+    border: none;
+    text-decoration: none;
+  }
+  .submit:hover,
+  .submit:focus {
+    outline: none;
+  }
+  .submit::-moz-foucus-inner {
+    border: none;
+    padding: 0;
+  }
+
+input[type="checkbox"] {
+    opacity:0;
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+  }
+
+.navi_item{
+    display: inline-block;
+    padding: 0 1em 0;
+    text-decoration: none;}
+
+
+
+/*======== CHECK BOX ========*/
+input[type="checkbox"] + span::before {
+    display: inline-block;
+    content: '';
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid #999;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
+
+input[type="checkbox"]:checked + span::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f00C';
+    font-weight: bold;
+    color: var(--h-navi-bg);
+    border: 2px solid var(--h-navi-bg);
+    text-align: center;
+  }
+
+/*======== BUTTON ========*/
+.button{
+    display: inline-block;
+    margin: 0.5em;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*---- button_e ----*/
+.btn_e{
+    padding: 0.5em 1em;
+    border-radius: 3px; 
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn_e:hover{
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+}
+
+.btn_e:active{
+    transform: translateY(2px);
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btn_e-blue{
+    background: var(--h-navi-bg);
+}
+
+
+/*---- button_b ----*/
+.btn_b{
+    padding: 0 1em;
+    border-radius: 10px;
+    color: #999;
+    font-weight: bold;
+    border: #999 3px solid;
+}
+
+.btn_b-red:hover{
+    color: var(--button-red);
+    border-color: var(--button-red);
+}
+
+/*---- submit ----*/
+.submit{
+    background-color: var(--h-navi-bg);
+    color: #fff;}
+
+
+/*======== SELECT ========*/
+select {
+    padding: 0.5em 1em;
+    border: #999 2px solid;
+    border-radius: 3px;
+    background: #fff;
+    color: var(--main-color);
+    vertical-align: middle;
+}
+
+select:focus{
+    outline: none;
+    border: var(--h-navi-bg) 2px solid;
+}
+
+
+    
+/*======== CONTAINER ========*/
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    max-width: 768px;
+}
+
+
+
+/*======== HEADER ========*/
+.header{
+    position: sticky;
+    top: 0;
+    background-color: var(--h-navi-bg);
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14);
+}
+
+/*---- navi ----*/
+.h-navi{
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+
+}
+
+.h-navi_item>a:hover{
+    color: var(--main-color);
+}
+
+
+
+/*======== MAIN ========*/
+.main{
+    height: 100%;
+}
+
+
+/*---- head ----*/
+.m-head{
+    text-align: center;
+    background-color: var(--m-head-bg);
+    color: #fff;
+    padding: 2em;
+}
+
+.m-head_title{
+    margin-bottom: .5em;
+}
+
+/*---- body ----*/
+.m-body{
+    color: var(--main-color);
+    padding: 3em;
+}
+
+.m-body_item{
+    padding: 3em;
+}
+
+/*---- question ----*/
+.q_title{
+    margin: 1.8em 0 0 0;
+}
+
+
+
+
+/*======== FOOTER ========*/
+.footer{
+    background-color: var(--footer-bg);
+    color: #fff;
+    text-align: center
+}
+
+/*---- navi ----*/
+.f-navi_item :hover{
+    text-decoration: underline dashed;
+}
+
+/*---- copyright ----*/
+
+
+
+/*======== FOR MOBILE ========*/
+@media screen and (max-width:560px){
+    .container{
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>観光調査アンケート－アンケート</title>
+    <meta name="viewport" content="width=device-width, initial-scale+1.0">
+    <link href="https://fonts.googleapis.com/css?family=ontserrat" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+
+    <!-------- HEADER -------->
+    <header class="header"　id="top"> <!-- navi -->
+        <!-- navi -->
+        <nav class="h-navi">
+            <ul>
+                <li class="navi_item h-navi_item"><a href="index.html">TOP</a></li>
+                <li class="navi_item h-navi_item"><a href="privacy.html">プライバシー</a></li>
+                <li class="navi_item h-navi_item"><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </nav> <!-- navi -->
+    </header> <!-- HEADER -->
+
+
+    <!-------- MAIN -------->
+    <main role="main" class="main"> <!-- head & body -->
+        <!-- head -->
+        <header class="m-head">
+            <span class="m-head_title">
+                <h1>観光調査アンケート</h1>
+            </span>
+
+            <span class="m-head_item">
+                <p>
+                回答時間目安　ｘ分<br>
+                質問は全部でｘ個あります。
+                </p>
+            </span>
+        </header> <!-- head -->
+
+
+        <!-------- SCRIPT -------->
+        <script>
+            // Geolocation APIに対応している
+            if (navigator.geolocation) {
+            //    alert("この端末では位置情報が取得できます");
+            // Geolocation APIに対応していない
+            } else {
+              alert("この端末では位置情報が取得できません");
+            }
+            
+            // 現在地取得処理
+            function getPosition() {
+                // 現在地を取得
+                navigator.geolocation.getCurrentPosition(
+                // 取得成功した場合
+                function(position) {
+                    get_position = ("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
+                    alert("位置情報を取得を許可しました！");
+                },
+                // 取得失敗した場合
+                function(error) {
+                  switch(error.code) {
+                    case 1: //PERMISSION_DENIED
+                      alert("位置情報の利用が許可されていません");
+                      break;
+                    case 2: //POSITION_UNAVAILABLE
+                      alert("現在位置が取得できませんでした");
+                      break;
+                    case 3: //TIMEOUT
+                      alert("タイムアウトになりました");
+                      break;
+                    default:
+                      alert("その他のエラー(エラーコード:"+error.code+")");
+                      break;
+                  }
+                }
+              );
+            }
+        </script>
+        <script>
+            function clickBtn1(){
+                // 値を取得
+                document.getElementById("textarea1").value = get_position;
+                alert("位置情報を取得しました！")
+            }
+        </script>
+
+
+        <!-- body -->
+        <section class="m-body">
+             <!--回答者の情報-->
+            <h4 class="q_title">質問1</h4>
+            <p>年齢</p>
+                <select id="q1" name="年齢" aria-required="true" required>
+                    <option disabled selected>１つ選択</option>
+                    <option>10代</option>
+                    <option>20代</option>
+                    <option>30代</option>
+                    <option>40代</option>
+                    <option>50代</option>
+                    <option>60代</option>
+                    <option>70代</option>
+                    <option>80代以上</option>
+                </select>
+
+            <h4 class="q_title">質問2</h4>
+            <p>性別</p>
+                <select id="q2" name="性別" aria-required="true" required>
+                    <option disabled selected>１つ選択</option>
+                    <option>男</option>
+                    <option>女</option>
+                </select>
+
+            <h4 class="q_title">質問3</h4>
+            <p>お住まいはどちらですか？</p>
+                <select name="居住" aria-required="true" required>
+                    <option disabled selected>１つ選択</option>
+                    <option>北海道</option>
+                    <option>東北</option>
+                    <option>関東</option>
+                    <option>中部</option>
+                    <option>近畿</option>
+                    <option>中国</option>
+                    <option>四国</option>
+                    <option>九州</option>
+                    <option>沖縄</option>
+                    <option>海外</option>
+                </select>
+
+            <h4 class="q_title">質問4</h4>
+            <p>ご職業</p>
+                <select name="職業" aria-required="true" required>
+                    <option disabled selected>１つ選択</option>
+                    <option>会社員</option>
+                    <option>公務員</option>
+                    <option>自営業</option>
+                    <option>経営者</option>
+                    <option>専業主婦(夫)</option>
+                    <option>学生</option>
+                    <option>アルバイト</option>
+                    <option>パート</option>
+                    <option>その他</option>
+                </select>
+
+            <!--動向について-->
+            <h4 class="q_title">質問5</h4>
+            <p>この施設の利用頻度を教えてください。</p>
+                <select name="頻度" aria-required="true" required>
+                    <option disabled selected>１つ選択</option> 
+                    <option>ほぼ毎日</option>
+                    <option>1週間に2〜4回程度</option>
+                    <option>週に1回程度</option>
+                    <option>月に1回程度</option>
+                    <option>2〜3ヶ月に1回程度</option>
+                    <option>半年に1回程度</option>
+                    <option>それ以下の頻度</option>
+                </select>
+
+            <h4 class="q_title">質問6</h4>
+            <p>移動手段を教えてください。</p>
+                <select name="移動" aria-required="true" required>
+                    <option disabled selected>１つ選択</option>
+                    <option>自動車</option>
+                    <option>バス</option>
+                    <option>タクシー</option>
+                    <option>自転車</option>
+                </select>
+
+            <h4 class="q_title">質問9</h4>
+            <p>この場所を何から見聞きしてお知りになりましたか？</p>
+                <select name="メディア" aria-required="true" required>
+                    <option disabled selected>１つ選択</option>
+                    <option>テレビ</option>
+                    <option>新聞・雑誌</option>
+                    <option>SNS</option>
+                    <option>ホームページ</option>
+                    <option>交通広告・看板</option>
+                    <option>家族・友人・知人</option>
+                    <option>その他</option>
+                </select>
+
+            <h4 class="q_title">質問x</h4>
+            <p>質問</p>
+                <select aria-required="true" required>
+                <option disabled selected>１つ選択</option>
+                </select>
+
+
+            <p class="q_title">位置情報の収集にご協力いただける場合は端末の位置情報サービスの設定をオンにしてから下のボタンを押してください。</>
+            <textarea id="textarea1" value="1" cols="38" rows=5 maxlength="30" style="display:none" name="position"></textarea>
+            <a class="button btn_b btn_b-red" id="data_position" onclick="getPosition();">位置情報の使用を許可する</a>
+            <a class="button btn_b btn_b-red" id="data_position" onclick="clickBtn1();">位置情報を提供する！</a>
+
+            <!-- 同意 -->
+            <p class="q_title">個人情報の取り扱いについての事項に同意される方はチェックボックスにチェックをつけてください。</p>
+            <label><input type="checkbox"aria-required="true" required><span>同意する</span></label>
+
+            <p class="q_title">全ての質問に回答した方は送信を押してください</p>
+            <input class="submit button btn_e" type="submit" value="送信">
+
+            <p class="q_title">アンケートは終了です。<br>
+                ご協力ありがとうごさいました。
+            </p>
+
+        </section> <!-- m-body -->
+    </main> <!-- main -->
+
+    <footer class="footer"> <!-- navi & copyright -->
+        <!-- navi -->
+        <div class="f-navi">
+            <ul>
+                <li class="navi_item f-navi_item"><a href="index.html">TOP</a></li>
+                <li class="navi_item f-navi_item"><a href="privacy.html">プライバシー</a></li>
+                <li class="navi_item f-navi_item"><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        </div> <!-- navi -->
+
+        <!-- copyright -->
+        <div class="f-copyright">
+            <small> Copyright © 2019 ***** Rights Reserved.</small>
+        </div> <!-- copyright -->
+    </footer> <!-- footer -->
+
+</div> <!-- container -->
+</body>
+</html>
